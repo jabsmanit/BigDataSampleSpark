@@ -26,6 +26,7 @@ public class ParallelizedCollectionDriver {
 			}
 		});
 		
+		int reducedValue2 = parallelizedRDD.reduce((v1,v2) -> v1+v2);
 		System.out.println("Reduced value is " + reducedValue);
 		
 		jsc.close();

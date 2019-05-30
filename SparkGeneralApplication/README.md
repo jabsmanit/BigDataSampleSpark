@@ -9,3 +9,8 @@ Steps for execution:
     # mvn clean install
 2) Navigate to the target directory on VM and run the spark application
     # spark-submit --class com.jabs.spark.ParallelizedCollectionDriver --master yarn SparkGeneralApplication-0.0.1-SNAPSHOT.jar
+	
+For WordCountDriver,
+    # spark-submit --class com.jabs.spark.WordCountDriver --master yarn SparkGeneralApplication-0.0.1-SNAPSHOT.jar /HadoopWordCount/input/ /Spark/Output
+	See the result
+	# hdfs dfs -ls /Spark/Output
