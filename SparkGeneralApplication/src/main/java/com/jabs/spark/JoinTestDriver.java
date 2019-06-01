@@ -36,9 +36,6 @@ public class JoinTestDriver {
 																		});
 		secondPairRdd.persist(StorageLevel.MEMORY_ONLY());
 		
-		System.out.println("firstRDDRecordCount: " + firstRDDRecordCount.value());
-		System.out.println("secondRDDRecordCount: " + secondRDDRecordCount.value());
-		
 		JavaPairRDD<String, Tuple2<Integer, Integer>> joinedRDD = firstPairRdd.join(secondPairRdd);
 		JavaPairRDD<String, Tuple2<Integer, Optional<Integer>>> leftJoinedRDD = firstPairRdd.leftOuterJoin(secondPairRdd);
 		JavaPairRDD<String, Tuple2<Optional<Integer>, Integer>> rightJoinedRDD = firstPairRdd.rightOuterJoin(secondPairRdd);
@@ -48,6 +45,9 @@ public class JoinTestDriver {
 		System.out.println("leftJoinedRDD is " + leftJoinedRDD.collect());
 		System.out.println("rightJoinedRDD is " + rightJoinedRDD.collect());
 		System.out.println("fullJoinedRDD is " + fullJoinedRDD.collect());
+		
+		System.out.println("firstRDDRecordCount: " + firstRDDRecordCount.value());
+		System.out.println("secondRDDRecordCount: " + secondRDDRecordCount.value());
 		
 		jsc.close();
 	}

@@ -10,7 +10,14 @@ Steps for execution:
 2) Navigate to the target directory on VM and run the spark application
     # spark-submit --class com.jabs.spark.ParallelizedCollectionDriver --master yarn SparkGeneralApplication-0.0.1-SNAPSHOT.jar
 	
-For WordCountDriver,
+#For WordCountDriver,
     # spark-submit --class com.jabs.spark.WordCountDriver --master yarn SparkGeneralApplication-0.0.1-SNAPSHOT.jar /HadoopWordCount/input/ /Spark/Output
 	See the result
 	# hdfs dfs -ls /Spark/Output
+	
+	
+#For JoinTestDriver,
+    # hdfs dfs -mkdir -p /Spark/join
+	# hdfs dfs -put data/join/*.txt /Spark/join
+    # spark-submit --class com.jabs.spark.JoinTestDriver --master yarn target/SparkGeneralApplication-0.0.1-SNAPSHOT.jar /Spark/join/dataset1.txt  /Spark/join/dataset2.txt > log.txt
+	
