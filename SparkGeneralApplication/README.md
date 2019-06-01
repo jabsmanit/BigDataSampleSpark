@@ -11,13 +11,14 @@ Steps for execution:
     # spark-submit --class com.jabs.spark.ParallelizedCollectionDriver --master yarn SparkGeneralApplication-0.0.1-SNAPSHOT.jar
 	
 #For WordCountDriver,
-    # spark-submit --class com.jabs.spark.WordCountDriver --master yarn SparkGeneralApplication-0.0.1-SNAPSHOT.jar /HadoopWordCount/input/ /Spark/Output
-	See the result
+    1) # spark-submit --class com.jabs.spark.WordCountDriver --master yarn SparkGeneralApplication-0.0.1-SNAPSHOT.jar /HadoopWordCount/input/ /Spark/Output
+	
+	2) See the result
 	# hdfs dfs -ls /Spark/Output
 	
 	
 #For JoinTestDriver,
-    # hdfs dfs -mkdir -p /Spark/join
-	# hdfs dfs -put data/join/*.txt /Spark/join
-    # spark-submit --class com.jabs.spark.JoinTestDriver --master yarn target/SparkGeneralApplication-0.0.1-SNAPSHOT.jar /Spark/join/dataset1.txt  /Spark/join/dataset2.txt > log.txt
+    1) # hdfs dfs -mkdir -p /Spark/join
+	2) # hdfs dfs -put data/join/*.txt /Spark/join
+    3) # spark-submit --class com.jabs.spark.JoinTestDriver --master yarn target/SparkGeneralApplication-0.0.1-SNAPSHOT.jar /Spark/join/dataset1.txt  /Spark/join/dataset2.txt > log.txt
 	
